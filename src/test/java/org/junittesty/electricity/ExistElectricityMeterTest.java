@@ -1,18 +1,15 @@
 package org.junittesty.electricity;
 
 import org.junit.*;
-import org.mockito.Mock;
 
-import static org.junit.Assert.*;
-
-public class ElectricityMeterTest {
+public class ExistElectricityMeterTest {
 
     private static ElectricityMeter electricityMeter;
 
     @BeforeClass
     public static void init() {
 //        Computation expensive steps
-        ElectricityMeterTest.electricityMeter = new ElectricityMeter();
+        ExistElectricityMeterTest.electricityMeter = new ElectricityMeter();
     }
 
     @Before
@@ -39,11 +36,9 @@ public class ElectricityMeterTest {
     @Ignore("Not implemented yet:):)")
     @Test
     public void addHwh_newMeter_properAddition2() {
-
-
         electricityMeter.addHwh(1);
         electricityMeter.addHwh(4);
-        Assert.assertTrue("Additional 1 and 4 shoud be 5", electricityMeter.getKwh() == 5);
+        Assert.assertTrue("Additional 1 and 4 shoud be 5", electricityMeter.getKwh() == 2);
     }
 
     @Test
@@ -70,21 +65,6 @@ public class ElectricityMeterTest {
         //Then/Assert
         Assert.assertTrue(electricityMeter.getKwh() == 17);
     }
-
-    //G-W-T preferred way to write tests
-//    @Test
-//    public void givenNewMeterWhenFirsAddionTheProperCounter() {
-//        //Give/Arrange
-//        ElectricityMeter electricityMeter = new ElectricityMeter();
-//        //When/Act
-//        electricityMeter.addHwh(1);
-//        electricityMeter.addHwh(4);
-//        electricityMeter.addHwh(4);
-//        electricityMeter.addHwh(4);
-//        electricityMeter.addHwh(4);
-//        //Then/Assert
-//        Assert.assertTrue(electricityMeter.getKwh() == 17);
-//    }
 
 
     @Test(expected = ArithmeticException.class)
